@@ -1,0 +1,271 @@
+{
+  "akka": {
+    "jvm-exit-on-fatal-error": "on",
+    "loglevel": "DEBUG",
+    "stdout-loglevel" : "OFF",
+    "loggers" : ["akka.event.slf4j.Slf4jLogger"],
+    "logging-filter" : "akka.event.slf4j.Slf4jLoggingFilter",
+    "log-dead-letters": "2",
+    "actor": {
+      "deployment": {
+      	"/ips_root_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "auth"
+          }
+        },
+        "/ips_security_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "auth"
+          }
+       	 },
+        "/authentication_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "auth"
+          }
+        },
+        "/authorization_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "auth"
+          }
+        },
+        "/securityAuditLogging_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 2,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "auth"
+          }
+        },
+        "/sync_actor": {
+        	"router": "round-robin-pool",
+        	"nr-of-instances": 1,
+            "cluster": {
+              "enabled": "on",
+              "max-nr-of-instances-per-node": 10,
+              "allow-local-routees": "on",
+              "use-role": "proc"
+            }
+          },
+         "/async_actor": {
+        	 "router": "round-robin-pool",
+        	 "nr-of-instances": 1,
+             "cluster": {
+               "enabled": "on",
+               "max-nr-of-instances-per-node": 10,
+               "allow-local-routees": "on",
+                 "use-role": "proc"
+             }
+          },
+          "/notify_actor": {
+        	  "router": "round-robin-pool",
+        	  "nr-of-instances": 1,
+              "cluster": {
+                "enabled": "on",
+                "max-nr-of-instances-per-node": 10,
+                "allow-local-routees": "on",
+                  "use-role": "proc"
+              }
+          },
+          "/pipeline_actor": {
+              "router": "round-robin-pool",
+              "nr-of-instances": 2,
+              "cluster": {
+                "enabled": "on",
+                "max-nr-of-instances-per-node": 10,
+                "allow-local-routees": "on",
+                "use-role": "proc"
+              }
+           },
+        "/filter_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/responseCache_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/serviceInvoker_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/transformer_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/transactionLogging_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/traceLogging_actor": {
+            "router": "round-robin-pool",
+            "nr-of-instances": 1,
+            "cluster": {
+              "enabled": "on",
+              "max-nr-of-instances-per-node": 10,
+              "allow-local-routees": "on",
+              "use-role": "proc"
+            }
+         },
+        "/interactionContextDSSLogger_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/interactionContextFileLogger_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/scheduler_manager": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/oneTime_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/repeat_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        },
+        "/cron_actor": {
+          "router": "round-robin-pool",
+          "nr-of-instances": 1,
+          "cluster": {
+            "enabled": "on",
+            "max-nr-of-instances-per-node": 10,
+            "allow-local-routees": "on",
+            "use-role": "proc"
+          }
+        }
+       },
+      "provider": "cluster",
+      "default-dispatcher": {
+        "attempt-teamwork": "on",
+        "default-executor": {
+          "fallback": "fork-join-executor"
+        },
+        "executor": "fork-join-executor",
+        "fork-join-executor": {
+          "parallelism-factor": 2.0,
+          "parallelism-max": 10,
+          "parallelism-min": 2,
+          "task-peeking-mode": "FIFO"
+        },
+        "mailbox-requirement": "",
+        "shutdown-timeout": "1s",
+        "throughput": 10,
+        "throughput-deadline-time": "0ms",
+        "type": "Dispatcher"
+      },
+      "debug": {
+    	  "receive": "on",
+    	  "lifecycle": "on"
+      }
+    },
+    "remote": {
+      "enabled-transports" : ["akka.remote.netty.tcp"],
+      "log-remote-lifecycle-events": "on",
+      "netty": {
+        "tcp": {
+          "hostname": "127.0.0.1",
+          "port": 2551
+        }
+      }
+    },
+    "cluster": {
+      "roles": [
+        "auth","proc","reschedule","scheduleProxy"
+      ],
+      "seed-nodes": [
+        "akka.tcp://SIS-IPS-ActorSystem@127.0.0.1:2551"
+      ],
+      "enabled": "on"
+    },
+    "akka.cluster.metrics.collector.sample-period": "60s",
+    "akka.cluster.metrics.enabled": "off",
+    "akka.extensions": [
+      "akka.cluster.metrics.ClusterMetricsExtension"
+    ]
+  }
+}
